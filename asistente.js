@@ -126,19 +126,21 @@
   function free(raw) {
     var t = norm(raw), i, j;
     me(raw);
+    var faqs = C.faq.filter(function (f) { return f.pri; }).concat(C.faq.filter(function (f) { return !f.pri; }));
+    for (j = 0; j < faqs.length; j++) { if (faqs[j].pri && new RegExp(faqs[j].kw, 'i').test(t)) { answer(faqs[j], raw); return; } }
     for (i = 0; i < C.servicios.length; i++) {
       if (new RegExp(C.servicios[i].kw, 'i').test(t)) { pickService(C.servicios[i], true); return; }
     }
-    for (j = 0; j < C.faq.length; j++) {
-      if (new RegExp(C.faq[j].kw, 'i').test(t)) {
-        say(C.faq[j].r, function () {
-          chip('Quiero agendar', function () { me('Quiero agendar'); say('¿Qué servicio buscas?', menu); });
-          link('Escribir por WhatsApp', wa('Hola ' + C.persona + ', vi tu página web y tengo una consulta: ' + raw));
-        });
-        return;
-      }
+    for (j = 0; j < faqs.length; j++) {
+      if (new RegExp(faqs[j].kw, 'i').test(t)) { answer(faqs[j], raw); return; }
     }
     offerHandoff('Eso prefiero que te lo responda ' + C.persona + ' directamente. Te dejo el chat listo con tu pregunta, o puedes ver los servicios.', raw);
+  }
+  function answer(f, raw) {
+    say(f.r, function () {
+      chip('Quiero agendar', function () { me('Quiero agendar'); say('¿Qué servicio buscas?', menu); });
+      link('Escribir por WhatsApp', wa('Hola ' + C.persona + ', vi tu página web y tengo una consulta: ' + raw));
+    });
   }
 
   function open() {

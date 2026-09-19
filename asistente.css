@@ -5,7 +5,7 @@
 .asis.is-open{opacity:1;transform:none}
 .asis ::selection{background:color-mix(in srgb,var(--accent) 30%,transparent)}
 .asis-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:16px 16px 13px 20px;border-bottom:1px solid var(--line)}
-.asis-head strong{display:block;font-family:var(--display,var(--font));font-weight:600;font-size:1.2rem;line-height:1.3}
+.asis-head strong{display:block;font-family:var(--display,var(--font));font-weight:600;font-size:1.2rem;line-height:1.4}
 .asis-head span{display:block;margin-top:3px;font-size:.78rem;line-height:1.4;color:var(--muted)}
 .asis-x{flex:none;width:44px;height:44px;display:grid;place-items:center;background:none;border:0;border-radius:50%;color:var(--muted);cursor:pointer}
 .asis-x:hover{background:var(--surface);color:var(--text)}
@@ -18,7 +18,7 @@
 .asis-log .quote{padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--asis-radius,6px);font-size:.92rem;color:var(--text)}
 .asis-opts{display:flex;flex-wrap:wrap;gap:8px;padding:4px 20px 14px}
 .asis-opts:empty{display:none}
-.asis-chip{font:inherit;font-size:.92rem;line-height:1.3;min-height:44px;display:inline-flex;align-items:center;padding:9px 15px;background:transparent;color:var(--asis-ink);border:1px solid var(--accent);border-radius:var(--asis-radius,6px);cursor:pointer;text-decoration:none;transition:background .15s ease,color .15s ease}
+.asis-chip{font:inherit;font-size:.92rem;line-height:1.4;min-height:44px;display:inline-flex;align-items:center;padding:9px 15px;background:transparent;color:var(--asis-ink);border:1px solid var(--accent);border-radius:var(--asis-radius,6px);cursor:pointer;text-decoration:none;transition:background .15s ease,color .15s ease}
 .asis-chip:hover{background:color-mix(in srgb,var(--accent) 14%,transparent)}
 .asis-chip.is-primary{background:var(--asis-ink);border-color:var(--asis-ink);color:#fff;font-weight:600}
 .asis-chip.is-primary:hover{filter:brightness(1.12);background:var(--asis-ink)}
