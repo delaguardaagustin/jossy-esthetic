@@ -20,7 +20,8 @@
   root.setAttribute('aria-label', 'Asistente de ' + C.negocio);
   root.innerHTML =
     '<header class="asis-head"><div><strong>' + C.negocio + '</strong>' +
-    '<span>Asistente virtual · las horas las confirma ' + C.persona + ' por WhatsApp</span></div>' +
+    '<span>Asistente virtual · las horas las confirma ' + C.persona + ' por WhatsApp</span>' +
+    '<a class="asis-direct" href="' + wa('Hola ' + C.persona + ', vi tu página web.') + '" target="_blank" rel="noopener">Ir directo a WhatsApp</a></div>' +
     '<button type="button" class="asis-x" aria-label="Cerrar asistente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>' +
     '<div class="asis-log" aria-live="polite"></div>' +
     '<div class="asis-opts"></div>' +
@@ -145,7 +146,7 @@
     requestAnimationFrame(function () { root.classList.add('is-open'); });
     fab.setAttribute('aria-expanded', 'true');
     if (!log.children.length) start();
-    setTimeout(function () { input.focus({ preventScroll: true }); }, 60);
+    if (!(window.matchMedia && matchMedia('(pointer:coarse)').matches)) setTimeout(function () { input.focus({ preventScroll: true }); }, 60);
   }
   function close() {
     root.classList.remove('is-open');
